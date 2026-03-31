@@ -1,33 +1,37 @@
 # Fiesta Party Hire Yeppoon
 
-Static website package prepared for GitHub Pages and standard static hosting.
+GitHub-ready static website package for **Fiesta Party Hire Yeppoon**.
 
-## Files
+## Project Files
 
 - `index.html` — main website file
+- `assets/` — reserved folders for future CSS, JS, and images
 - `favicon.ico` — site icon
-- `assets/css/style.css` — extracted styles
-- `assets/js/script.js` — extracted scripts
-- `assets/images/` — reserved folder for future local images
 
-## Open locally
+## Open Locally
 
-Open `index.html` in your browser.
+1. Download or clone this repository.
+2. Open `index.html` in your web browser.
 
 ## Deploy to GitHub Pages
 
-1. Upload all files and folders in this package to your repository root.
-2. In GitHub, open **Settings** → **Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the **main** branch and the **/(root)** folder.
-5. Save, then wait for deployment.
+1. Upload these files to your repository root.
+2. Commit and push to the `main` branch.
+3. In GitHub, open **Settings** → **Pages**.
+4. Under **Build and deployment**, set:
+   - **Source:** Deploy from a branch
+   - **Branch:** `main` / `/ (root)`
+5. Save the settings.
+6. Wait for GitHub Pages to publish the site.
 
-Your site URL will look like:
+## Live Preview URL
 
-`https://<username>.github.io/<repository-name>/`
+After publishing, your site will usually be available at:
+
+`https://melvinslazarra25-arch.github.io/fiestapartyhireyeppoon/`
 
 ## Notes
 
-- All internal references use relative paths.
-- The `assets/images` folder is ready for future local image files.
-- Existing external image URLs were preserved so the current design stays unchanged.
+- This is a static HTML/CSS/JavaScript website.
+- Any `localStorage` data is browser-specific and device-specific.
+- External image URLs used by the page must remain reachable for those images to load online.
