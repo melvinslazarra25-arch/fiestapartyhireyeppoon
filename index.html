@@ -11,7 +11,6 @@
   <meta name="format-detection" content="telephone=yes" />
   <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQyIiBmaWxsPSIjZmY1ZmEyIi8+PHRleHQgeD0iOTYiIHk9IjExOCIgc3R5bGU9ImZvbnQ6IDcwMHB4IDkycHggQXJpYWw7IGZpbGw6IHdoaXRlOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyI+RjwvdGV4dD48L3N2Zz4=" />
 
-    <link rel="icon" href="favicon.ico" />
   <title>Fiesta Party Hire Yeppoon Yeppoon | Party Hire & Event Services</title>
   <meta name="description" content="Fiesta Party Hire Yeppoon Yeppoon - marquees, tables and chairs, party decorations, keepsakes, balloons, party hire packages, and individual hire items in Yeppoon, Queensland, Australia." />
   <style>
@@ -1022,6 +1021,38 @@
     }
 
 
+    .status-pill.pending{background:rgba(255,200,87,0.14);color:var(--secondary);border:1px solid rgba(255,200,87,0.3)}
+    .status-pill.paid{background:rgba(134,239,172,0.14);color:var(--success);border:1px solid rgba(134,239,172,0.3)}
+    .status-pill.cancelled{background:rgba(255,95,162,0.14);color:var(--primary);border:1px solid rgba(255,95,162,0.3)}
+    .status-pill.info{background:rgba(103,232,249,0.14);color:var(--accent);border:1px solid rgba(103,232,249,0.3)}
+    .admin-login-form,.calendar-grid,.payment-grid,.advanced-grid,.pwa-box{display:grid;gap:14px}
+    .calendar-grid{grid-template-columns:repeat(7,minmax(0,1fr));margin-top:14px}
+    .calendar-day,.calendar-head{
+      text-align:center;padding:12px 8px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04)
+    }
+    .calendar-head{font-weight:700;color:var(--text);background:rgba(255,255,255,0.08)}
+    .calendar-day small{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}
+    .calendar-day.booked{border-color:rgba(255,95,162,0.45);box-shadow:inset 0 0 0 1px rgba(255,95,162,0.18)}
+    .calendar-day.selected{border-color:rgba(103,232,249,0.5);box-shadow:0 0 0 1px rgba(103,232,249,0.18)}
+    .calendar-day.muted{opacity:.45}
+    .calendar-day.today{outline:1px dashed rgba(255,200,87,0.5)}
+    .calendar-legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .legend-pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:.84rem;color:var(--muted);background:rgba(255,255,255,0.05)}
+    .legend-pill em{font-style:normal;color:var(--text)}
+    .admin-table select{
+      width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,0.06);color:var(--text)
+    }
+    .inline-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .security-note,.discount-note{font-size:.85rem;color:var(--muted);line-height:1.6}
+    .pwa-box{margin-top:20px;padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,0.05)}
+    .lightbox-nav{
+      position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+      border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.08);color:#fff;display:grid;place-items:center;cursor:pointer
+    }
+    .lightbox-prev{left:18px}.lightbox-next{right:18px}
+    .calendar-note{color:var(--muted);line-height:1.7;margin-top:10px}
+    .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
 
     @media (max-width: 1024px){
       .hero-wrap,
@@ -1650,7 +1681,7 @@
           <div class="floating-note">
             <strong style="display:block; margin-bottom:6px;">Styled for celebrations</strong>
             <span style="color:var(--muted); line-height:1.6;">
-              This includes the hire of the wedding reception venue as well as equipment needed for decorations. Our offerings encompass plates, glassware, wine glasses, cutlery, table settings, marquees and other related items.
+              
             </span>
           </div>
         </div>
@@ -1899,6 +1930,38 @@
               </div>
             </div>
 
+            <div class="payment-grid">
+              <div class="field">
+                <label for="paymentMethod">Preferred Payment Method</label>
+                <select id="paymentMethod" name="paymentMethod">
+                  <option value="Cash">Cash</option>
+                  <option value="Bank Transfer">Bank Transfer</option>
+                  <option value="GCash">GCash</option>
+                  <option value="Card on Arrival">Card on Arrival</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="paymentStatus">Payment Status</label>
+                <select id="paymentStatus" name="paymentStatus">
+                  <option value="Pending">Pending</option>
+                  <option value="Paid">Paid</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="inline-grid-2">
+              <div class="field">
+                <label for="promoCode">Discount / Promo Code</label>
+                <input id="promoCode" name="promoCode" type="text" placeholder="Optional promo code">
+              </div>
+              <div class="field">
+                <label for="discountValue">Manual Discount (AUD)</label>
+                <input id="discountValue" name="discountValue" type="number" min="0" max="500" value="0">
+              </div>
+            </div>
+            <div class="discount-note">Supported promo codes: WEEKEND5, WEDDING10, PARTY15. Discounts are applied automatically if valid.</div>
+
             <div class="builder-card">
               <strong style="display:block; margin-bottom:8px;">Package Builder</strong>
               <span style="color:var(--muted); line-height:1.7;">Add optional extras to build a more complete setup instantly.</span>
@@ -1962,7 +2025,7 @@
               <button class="btn btn-primary" id="submitBookingBtn" type="submit">Save Booking</button>
               <button class="btn btn-secondary" id="openWhatsappQuote" type="button">Send via WhatsApp</button>
             </div>
-            <div class="inline-note"></div>
+            <div class="inline-note">Shortcut:  <strong></strong> </div>
           </form>
 
           <div class="invoice-panel" id="invoicePreview">
@@ -1978,10 +2041,14 @@
             <div class="invoice-line"><span>Package</span><strong id="invoicePackage">—</strong></div>
             <div class="invoice-line"><span>Extras</span><strong id="invoiceExtras">None</strong></div>
             <div class="invoice-line"><span>Venue</span><strong id="invoiceVenue">—</strong></div>
+            <div class="invoice-line"><span>Invoice No.</span><strong id="invoiceNumber">—</strong></div>
+            <div class="invoice-line"><span>Payment</span><strong id="invoicePayment">Pending</strong></div>
+            <div class="invoice-line"><span>Discount</span><strong id="invoiceDiscount">$0 AUD</strong></div>
             <div class="invoice-line"><span>Inventory Allocation</span><strong id="invoiceInventory">—</strong></div>
             <div class="invoice-line"><span>Total</span><strong id="invoiceTotal">$0 AUD</strong></div>
             <div class="invoice-actions">
               <button class="btn btn-primary" id="printInvoiceBtn" type="button">Print Invoice</button>
+              <button class="btn btn-secondary" id="downloadPdfBtnInline" type="button">Save PDF</button>
               <button class="btn btn-secondary" id="downloadBookingsBtn" type="button">Export Bookings JSON</button>
             </div>
           </div>
@@ -2028,6 +2095,46 @@
               <span>Estimated Revenue</span>
               <strong id="analyticsRevenue">$0 AUD</strong>
               <span>Quick planning estimate</span>
+            </div>
+          </div>
+
+          <div class="advanced-grid" style="margin-top:20px; grid-template-columns:repeat(3,minmax(0,1fr));">
+            <div class="analytics-card">
+              <span>Paid Bookings</span>
+              <strong id="analyticsPaid">0</strong>
+              <span>Completed payments</span>
+            </div>
+            <div class="analytics-card">
+              <span>Pending Payments</span>
+              <strong id="analyticsPending">0</strong>
+              <span>Need follow-up</span>
+            </div>
+            <div class="analytics-card">
+              <span>Low Stock Alerts</span>
+              <strong id="analyticsAlerts">0</strong>
+              <span>Inventory attention count</span>
+            </div>
+          </div>
+
+          <div style="margin-top:20px; padding:18px; border-radius:20px; border:1px solid var(--line); background:rgba(255,255,255,0.05);">
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;">
+              <strong style="display:block;">Booking Calendar</strong>
+              <span class="status-pill info" id="calendarMonthLabel">Upcoming schedule</span>
+            </div>
+            <div class="calendar-grid" id="bookingCalendar"></div>
+            <div class="calendar-legend">
+              <span class="legend-pill"><em>Booked</em> dates are blocked</span>
+              <span class="legend-pill"><em>Selected</em> follows your date field</span>
+            </div>
+            <div class="calendar-note" id="calendarNote">Choose a future date to see it highlighted here.</div>
+          </div>
+
+          <div class="pwa-box">
+            <strong style="display:block; margin-bottom:8px;">Installable Website Tools</strong>
+            <span style="color:var(--muted); line-height:1.7;">Add Fiesta Party Hire to your home screen for faster access on mobile and desktop supported browsers.</span>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+              <button class="btn btn-secondary" id="installAppBtn" type="button">Install App</button>
+              <button class="btn btn-secondary" id="downloadPdfBtn" type="button">Save Invoice PDF</button>
             </div>
           </div>
 
@@ -2141,7 +2248,26 @@
     </div>
   </div>
 
-  
+
+  <div class="modal" id="adminLoginModal" aria-hidden="true">
+    <div class="modal-card glass">
+      <button class="close-btn" id="closeAdminLogin" aria-label="Close admin login">✕</button>
+      <h3 style="margin-top:0; font-size:1.5rem;">Admin Access</h3>
+      <p style="color:var(--muted); line-height:1.75; margin-bottom:0;">Use a local admin password to unlock the dashboard for this browser session.</p>
+      <form id="adminLoginForm" class="admin-login-form" style="margin-top:18px;">
+        <div class="field">
+          <label for="adminPassword">Admin Password</label>
+          <input id="adminPassword" type="password" placeholder="Enter admin password" autocomplete="current-password" required>
+        </div>
+        <div class="security-note">Default password: <strong>FiestaAdmin2026!</strong> You can change it later inside the admin dashboard.</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary" type="submit">Unlock Dashboard</button>
+          <button class="btn btn-secondary" type="button" id="cancelAdminLogin">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="modal admin-modal" id="adminModal" aria-hidden="true">
     <div class="modal-card glass">
       <button class="close-btn" id="closeAdmin" aria-label="Close admin modal">✕</button>
@@ -2161,10 +2287,35 @@
           <p id="adminInventoryLeft" style="margin:0;">Chairs -- • Tables -- • Decor --</p>
         </div>
       </div>
-      <div class="admin-toolbar" style="grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:18px;">
+      <div class="advanced-grid" style="grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:18px;">
+        <div class="mini-card">
+          <h4 style="margin:0 0 6px;">Paid Revenue</h4>
+          <p id="adminPaidRevenue" style="margin:0;">$0 AUD</p>
+        </div>
+        <div class="mini-card">
+          <h4 style="margin:0 0 6px;">Pending Value</h4>
+          <p id="adminPendingRevenue" style="margin:0;">$0 AUD</p>
+        </div>
+        <div class="mini-card">
+          <h4 style="margin:0 0 6px;">Blocked Dates</h4>
+          <p id="adminBlockedDates" style="margin:0;">0</p>
+        </div>
+        <div class="mini-card">
+          <h4 style="margin:0 0 6px;">Admin Session</h4>
+          <p id="adminSessionState" style="margin:0;">Unlocked</p>
+        </div>
+      </div>
+      <div class="admin-toolbar" style="grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:18px;">
         <button class="btn btn-primary" id="exportAdminJson" type="button">Export JSON</button>
         <button class="btn btn-secondary" id="resetInventoryBtn" type="button">Reset Inventory</button>
         <button class="btn btn-secondary" id="clearBookingsBtn" type="button">Delete All Bookings</button>
+        <button class="btn btn-secondary" id="logoutAdminBtn" type="button">Logout Admin</button>
+      </div>
+      <div class="admin-toolbar" style="grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:14px;">
+        <input id="restockChairsInput" type="number" min="0" value="12" placeholder="Chairs restock">
+        <input id="restockTablesInput" type="number" min="0" value="4" placeholder="Tables restock">
+        <input id="restockDecorInput" type="number" min="0" value="2" placeholder="Decor restock">
+        <button class="btn btn-secondary" id="restockInventoryBtn" type="button">Restock Inventory</button>
       </div>
       <div class="admin-table-wrap">
         <table class="admin-table">
@@ -2174,6 +2325,7 @@
               <th>Date</th>
               <th>Package</th>
               <th>Total</th>
+              <th>Payment</th>
               <th>Event</th>
               <th>Venue</th>
               <th>Action</th>
@@ -2188,6 +2340,8 @@
 
   <div class="lightbox" id="lightbox">
     <button id="closeLightbox" aria-label="Close image preview">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
     <img id="lightboxImage" src="" alt="Gallery preview">
   </div>
 
@@ -2201,9 +2355,14 @@
     const navLinks = document.getElementById('navLinks');
     const bookingModal = document.getElementById('bookingModal');
     const adminModal = document.getElementById('adminModal');
+    const adminLoginModal = document.getElementById('adminLoginModal');
     const openBooking = document.getElementById('openBooking');
     const closeBooking = document.getElementById('closeBooking');
     const closeAdmin = document.getElementById('closeAdmin');
+    const closeAdminLogin = document.getElementById('closeAdminLogin');
+    const cancelAdminLogin = document.getElementById('cancelAdminLogin');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const adminPassword = document.getElementById('adminPassword');
     const toast = document.getElementById('toast');
     const bookingForm = document.getElementById('bookingForm');
     const quickForm = document.getElementById('quickForm');
@@ -2220,6 +2379,10 @@
     const packageSelect = document.getElementById('packageSelect');
     const eventType = document.getElementById('eventType');
     const eventDate = document.getElementById('eventDate');
+    const paymentMethod = document.getElementById('paymentMethod');
+    const paymentStatus = document.getElementById('paymentStatus');
+    const promoCode = document.getElementById('promoCode');
+    const discountValue = document.getElementById('discountValue');
     const guestCount = document.getElementById('guestCount');
     const setupHours = document.getElementById('setupHours');
     const venueInput = document.getElementById('venue');
@@ -2246,6 +2409,9 @@
     const invoicePackage = document.getElementById('invoicePackage');
     const invoiceExtras = document.getElementById('invoiceExtras');
     const invoiceVenue = document.getElementById('invoiceVenue');
+    const invoiceNumber = document.getElementById('invoiceNumber');
+    const invoicePayment = document.getElementById('invoicePayment');
+    const invoiceDiscount = document.getElementById('invoiceDiscount');
     const invoiceInventory = document.getElementById('invoiceInventory');
     const invoiceTotal = document.getElementById('invoiceTotal');
     const printInvoiceBtn = document.getElementById('printInvoiceBtn');
@@ -2253,6 +2419,15 @@
     const analyticsBookings = document.getElementById('analyticsBookings');
     const analyticsTopPackage = document.getElementById('analyticsTopPackage');
     const analyticsRevenue = document.getElementById('analyticsRevenue');
+    const analyticsPaid = document.getElementById('analyticsPaid');
+    const analyticsPending = document.getElementById('analyticsPending');
+    const analyticsAlerts = document.getElementById('analyticsAlerts');
+    const bookingCalendar = document.getElementById('bookingCalendar');
+    const calendarMonthLabel = document.getElementById('calendarMonthLabel');
+    const calendarNote = document.getElementById('calendarNote');
+    const installAppBtn = document.getElementById('installAppBtn');
+    const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+    const downloadPdfBtnInline = document.getElementById('downloadPdfBtnInline');
     const adminBookingsCount = document.getElementById('adminBookingsCount');
     const adminTopPackage = document.getElementById('adminTopPackage');
     const adminInventoryLeft = document.getElementById('adminInventoryLeft');
@@ -2261,13 +2436,26 @@
     const exportAdminJson = document.getElementById('exportAdminJson');
     const resetInventoryBtn = document.getElementById('resetInventoryBtn');
     const clearBookingsBtn = document.getElementById('clearBookingsBtn');
+    const adminPaidRevenue = document.getElementById('adminPaidRevenue');
+    const adminPendingRevenue = document.getElementById('adminPendingRevenue');
+    const adminBlockedDates = document.getElementById('adminBlockedDates');
+    const adminSessionState = document.getElementById('adminSessionState');
+    const logoutAdminBtn = document.getElementById('logoutAdminBtn');
+    const restockInventoryBtn = document.getElementById('restockInventoryBtn');
+    const restockChairsInput = document.getElementById('restockChairsInput');
+    const restockTablesInput = document.getElementById('restockTablesInput');
+    const restockDecorInput = document.getElementById('restockDecorInput');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
 
     const STORAGE_KEYS = {
       theme: 'fiesta-theme',
       bookings: 'fiesta-bookings',
       inventory: 'fiesta-inventory',
       quick: 'fiesta-quick-inquiry',
-      latest: 'fiesta-booking-last'
+      latest: 'fiesta-booking-last',
+      adminSession: 'fiesta-admin-session',
+      adminPassword: 'fiesta-admin-password'
     };
 
     const DEFAULT_INVENTORY = { chairs: 120, tables: 30, decorations: 24 };
@@ -2278,6 +2466,17 @@
       'Baby Shower': ['Backdrop + cake stand is a strong baby shower combo.', 'Soft balloon styling adds color without cluttering the venue.', 'Standard package is usually enough unless your guest list is large.'],
       'Family Gathering': ['Basic or Standard package usually covers flexible seating well.', 'Add extra chairs if guest count may grow close to the event date.', 'Fairy lights give relaxed evening gatherings a warmer feel.']
     };
+    const PROMO_CODES = {
+      WEEKEND5: 5,
+      WEDDING10: 10,
+      PARTY15: 15
+    };
+    const DEFAULT_ADMIN_PASSWORD = 'FiestaAdmin2026!';
+    const WEEK_DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    let deferredInstallPrompt = null;
+    let currentGalleryIndex = 0;
+
+
 
     function getBookings(){
       try{ return JSON.parse(localStorage.getItem(STORAGE_KEYS.bookings)) || []; }
@@ -2342,14 +2541,19 @@
       const extras = selectedExtras();
       const decorBonus = extras.some(item => item.name === 'Backdrop') ? 1 : 0;
       const extraChairBonus = extras.some(item => item.name === 'Extra Chairs') ? 12 : 0;
+      const promo = (promoCode.value || '').trim().toUpperCase();
+      const promoDiscount = PROMO_CODES[promo] || 0;
+      const manualDiscount = Math.max(0, Number(discountValue.value || 0));
       if(!meta){
-        return { meta:null, total:0, extras, builderTotal: extras.reduce((s,e)=>s+e.price,0), chairs:0, tables:0, decorations:0, ok:true };
+        return { meta:null, total:0, extras, builderTotal: extras.reduce((s,e)=>s+e.price,0), chairs:0, tables:0, decorations:0, ok:true, discountTotal:promoDiscount + manualDiscount, promo };
       }
       const builderTotal = extras.reduce((s, item) => s + item.price, 0);
       const overtime = Math.max(0, Number(setupHours.value || 0) - 4) * 18;
       const chairs = meta.chairs + chairsExtra + extraChairBonus;
       const tables = meta.tables + Math.max(0, tablesExtra);
       const decorations = meta.decorations + decorBonus + (extras.some(item => item.name === 'Balloon Arch') ? 1 : 0) + (extras.some(item => item.name === 'Fairy Lights') ? 1 : 0);
+      const subtotal = meta.price + builderTotal + overtime;
+      const discountTotal = Math.min(subtotal, promoDiscount + manualDiscount);
       return {
         meta,
         extras,
@@ -2357,7 +2561,10 @@
         chairs,
         tables,
         decorations,
-        total: meta.price + builderTotal + overtime,
+        subtotal,
+        discountTotal,
+        promo,
+        total: Math.max(0, subtotal - discountTotal),
         ok:true
       };
     }
@@ -2405,18 +2612,31 @@
     function renderAnalytics(){
       const bookings = getBookings();
       const totalRevenue = bookings.reduce((sum, item) => sum + Number(item.total || 0), 0);
+      const paidBookings = bookings.filter(item => item.paymentStatus === 'Paid');
+      const pendingBookings = bookings.filter(item => item.paymentStatus === 'Pending');
+      const totalPaidRevenue = paidBookings.reduce((sum, item) => sum + Number(item.total || 0), 0);
+      const totalPendingRevenue = pendingBookings.reduce((sum, item) => sum + Number(item.total || 0), 0);
       const counts = bookings.reduce((acc, item) => {
         acc[item.package] = (acc[item.package] || 0) + 1;
         return acc;
       }, {});
       const topPackage = Object.entries(counts).sort((a,b) => b[1] - a[1])[0]?.[0] || '—';
+      const inv = getInventory();
+      const lowAlerts = [inv.chairs < 24, inv.tables < 8, inv.decorations < 4].filter(Boolean).length;
       analyticsBookings.textContent = String(bookings.length);
       analyticsTopPackage.textContent = topPackage;
       analyticsRevenue.textContent = formatMoney(totalRevenue);
+      analyticsPaid.textContent = String(paidBookings.length);
+      analyticsPending.textContent = String(pendingBookings.length);
+      analyticsAlerts.textContent = String(lowAlerts);
       adminBookingsCount.textContent = `${bookings.length} saved`;
       adminTopPackage.textContent = topPackage;
-      const inv = getInventory();
       adminInventoryLeft.textContent = `Chairs ${inv.chairs} • Tables ${inv.tables} • Decor ${inv.decorations}`;
+      adminPaidRevenue.textContent = formatMoney(totalPaidRevenue);
+      adminPendingRevenue.textContent = formatMoney(totalPendingRevenue);
+      adminBlockedDates.textContent = String(new Set(bookings.map(item => item.eventDate)).size);
+      adminSessionState.textContent = isAdminSessionActive() ? 'Unlocked' : 'Locked';
+      renderCalendar();
     }
     function renderAdminTable(){
       const bookings = getBookings();
@@ -2429,6 +2649,13 @@
           <td>${formatDate(item.eventDate)}</td>
           <td>${item.package}</td>
           <td>${formatMoney(item.total)}</td>
+          <td>
+            <select data-payment-booking="${item.id}">
+              <option value="Pending" ${item.paymentStatus === 'Pending' ? 'selected' : ''}>Pending</option>
+              <option value="Paid" ${item.paymentStatus === 'Paid' ? 'selected' : ''}>Paid</option>
+              <option value="Cancelled" ${item.paymentStatus === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+            </select>
+          </td>
           <td>${item.eventType}</td>
           <td>${item.venue}</td>
           <td><button class="icon-btn" type="button" data-delete-booking="${item.id}">Delete</button></td>
@@ -2444,9 +2671,13 @@
       invoicePackage.textContent = booking.package;
       invoiceExtras.textContent = booking.extras.length ? booking.extras.map(item => `${item.name} (${formatMoney(item.price)})`).join(', ') : 'None';
       invoiceVenue.textContent = booking.venue;
+      invoiceNumber.textContent = booking.invoiceNumber || `FIESTA-${String(booking.id || '').slice(0,8).toUpperCase()}`;
+      invoicePayment.textContent = `${booking.paymentStatus || 'Pending'} • ${booking.paymentMethod || 'Cash'}`;
+      invoiceDiscount.textContent = booking.discountTotal ? `${formatMoney(booking.discountTotal)}${booking.promoCode ? ` • ${booking.promoCode}` : ''}` : '$0 AUD';
       invoiceInventory.textContent = `${booking.inventory.chairs} chairs • ${booking.inventory.tables} tables • ${booking.inventory.decorations} decorations`;
       invoiceTotal.textContent = formatMoney(booking.total);
       invoiceStatus.textContent = booking.status || 'Draft saved locally';
+      invoiceStatus.className = `status-pill ${(booking.paymentStatus || 'Pending').toLowerCase() === 'paid' ? 'paid' : (booking.paymentStatus || 'Pending').toLowerCase() === 'cancelled' ? 'cancelled' : 'pending'}`;
     }
     function buildWhatsappLink(booking){
       const lines = [
@@ -2460,11 +2691,161 @@
         `Package: ${booking.package}`,
         `Extras: ${booking.extras.length ? booking.extras.map(item => item.name).join(', ') : 'None'}`,
         `Venue: ${booking.venue}`,
+        `Payment: ${booking.paymentStatus || 'Pending'} via ${booking.paymentMethod || 'Cash'}`,
+        `Discount: ${booking.discountTotal ? formatMoney(booking.discountTotal) : '$0 AUD'}`,
         `Total: ${formatMoney(booking.total)}`,
         `Notes: ${booking.message || 'N/A'}`
       ];
       return `https://wa.me/61427944574?text=${encodeURIComponent(lines.join('\n'))}`;
     }
+
+    function getAdminPassword(){
+      return localStorage.getItem(STORAGE_KEYS.adminPassword) || DEFAULT_ADMIN_PASSWORD;
+    }
+    function isAdminSessionActive(){
+      return localStorage.getItem(STORAGE_KEYS.adminSession) === 'active';
+    }
+    function updateBookingPayment(id, status){
+      const bookings = getBookings();
+      const index = bookings.findIndex(item => item.id === id);
+      if(index === -1) return;
+      bookings[index].paymentStatus = status;
+      bookings[index].status = status === 'Paid' ? 'Payment received' : status === 'Cancelled' ? 'Booking cancelled' : 'Awaiting payment';
+      setBookings(bookings);
+      renderAnalytics();
+      renderAdminTable();
+      const latest = latestBookingDraft();
+      if(latest && latest.id === id){
+        latest.paymentStatus = status;
+        latest.status = bookings[index].status;
+        localStorage.setItem(STORAGE_KEYS.latest, JSON.stringify(latest));
+        renderInvoice(latest);
+      }
+      showToast(`Payment status updated to ${status}.`);
+    }
+    function restockInventory(){
+      const inv = getInventory();
+      inv.chairs += Math.max(0, Number(restockChairsInput.value || 0));
+      inv.tables += Math.max(0, Number(restockTablesInput.value || 0));
+      inv.decorations += Math.max(0, Number(restockDecorInput.value || 0));
+      setInventory(inv);
+      renderAnalytics();
+      updateQuoteUI();
+      showToast('Inventory restocked.');
+    }
+    function renderCalendar(){
+      if(!bookingCalendar) return;
+      const selectedDate = eventDate.value ? new Date(eventDate.value + 'T00:00:00') : new Date();
+      const base = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
+      const monthLabel = base.toLocaleDateString(undefined, { month:'long', year:'numeric' });
+      calendarMonthLabel.textContent = monthLabel;
+      const firstDay = new Date(base);
+      const startOffset = firstDay.getDay();
+      const startDate = new Date(base);
+      startDate.setDate(base.getDate() - startOffset);
+      const bookings = getBookings();
+      const bookedMap = new Map();
+      bookings.forEach(item => {
+        bookedMap.set(item.eventDate, item.package);
+      });
+      bookingCalendar.innerHTML = '';
+      WEEK_DAYS.forEach(day => {
+        const head = document.createElement('div');
+        head.className = 'calendar-head';
+        head.textContent = day;
+        bookingCalendar.appendChild(head);
+      });
+      for(let i=0;i<42;i++){
+        const day = new Date(startDate);
+        day.setDate(startDate.getDate() + i);
+        const key = day.toISOString().slice(0,10);
+        const card = document.createElement('div');
+        const inMonth = day.getMonth() === base.getMonth();
+        card.className = 'calendar-day' + (inMonth ? '' : ' muted') + (key === eventDate.value ? ' selected' : '') + (bookedMap.has(key) ? ' booked' : '');
+        if(key === new Date().toISOString().slice(0,10)) card.className += ' today';
+        const label = document.createElement('div');
+        label.textContent = String(day.getDate());
+        const meta = document.createElement('small');
+        meta.textContent = bookedMap.has(key) ? 'Booked' : (key === eventDate.value ? 'Selected' : 'Open');
+        card.appendChild(label);
+        card.appendChild(meta);
+        card.addEventListener('click', () => {
+          if(bookedMap.has(key) && key !== eventDate.value){
+            showToast('That date is already blocked by a saved booking.');
+            return;
+          }
+          eventDate.value = key;
+          updateQuoteUI();
+          renderCalendar();
+        });
+        bookingCalendar.appendChild(card);
+      }
+      calendarNote.textContent = bookings.length ? `${bookings.length} locally saved booking(s) are reflected here.` : 'Choose a future date to see it highlighted here.';
+    }
+    function maybeOpenAdmin(){
+      if(isAdminSessionActive()) openAdmin();
+      else openAdminLogin();
+    }
+    function openAdminLogin(){
+      adminLoginModal.classList.add('active');
+      adminLoginModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      setTimeout(() => adminPassword?.focus(), 50);
+    }
+    function closeAdminLoginPanel(){
+      adminLoginModal.classList.remove('active');
+      adminLoginModal.setAttribute('aria-hidden', 'true');
+      if(!bookingModal.classList.contains('active') && !adminModal.classList.contains('active')) document.body.classList.remove('modal-open');
+    }
+    function triggerPdfDownload(){
+      if(!invoicePreview.classList.contains('visible')){
+        showToast('Save a booking first to create a PDF-ready invoice.');
+        return;
+      }
+      showToast('Use your browser print dialog and choose Save as PDF.');
+      setTimeout(() => window.print(), 250);
+    }
+    function updatePwaButtonState(){
+      if(installAppBtn) installAppBtn.disabled = !deferredInstallPrompt;
+    }
+    function registerPwaAssets(){
+      try{
+        const manifest = {
+          name: 'Fiesta Party Hire Yeppoon',
+          short_name: 'Fiesta Hire',
+          display: 'standalone',
+          start_url: './',
+          background_color: '#0f1020',
+          theme_color: '#ff5fa2',
+          icons: [{
+            src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQyIiBmaWxsPSIjZmY1ZmEyIi8+PHRleHQgeD0iOTYiIHk9IjExOCIgc3R5bGU9ImZvbnQ6IDcwMHB4IDkycHggQXJpYWw7IGZpbGw6IHdoaXRlOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyI+RjwvdGV4dD48L3N2Zz4=',
+            sizes: '192x192',
+            type: 'image/svg+xml'
+          }]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifest)], { type:'application/manifest+json' });
+        const manifestLink = document.createElement('link');
+        manifestLink.rel = 'manifest';
+        manifestLink.href = URL.createObjectURL(manifestBlob);
+        document.head.appendChild(manifestLink);
+      }catch(err){}
+      if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+        try{
+          const swCode = `self.addEventListener('install', event => self.skipWaiting());self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));`;
+          const swBlob = new Blob([swCode], { type:'text/javascript' });
+          const swUrl = URL.createObjectURL(swBlob);
+          navigator.serviceWorker.register(swUrl).catch(() => {});
+        }catch(err){}
+      }
+    }
+    function openGalleryAt(index){
+      currentGalleryIndex = index;
+      const card = galleryCards[currentGalleryIndex];
+      if(!card) return;
+      lightboxImage.src = card.getAttribute('data-image');
+      lightbox.classList.add('active');
+    }
+
     function latestBookingDraft(){
       try{ return JSON.parse(localStorage.getItem(STORAGE_KEYS.latest)); }
       catch(err){ return null; }
@@ -2509,8 +2890,14 @@
           tables: state.tables,
           decorations: state.decorations
         },
+        subtotal: Number(state.subtotal || state.total || 0),
+        discountTotal: Number(state.discountTotal || 0),
+        promoCode: state.promo || '',
+        paymentMethod: paymentMethod.value,
+        paymentStatus: paymentStatus.value,
         total: state.total,
-        status: 'Draft saved locally',
+        status: paymentStatus.value === 'Paid' ? 'Payment received' : paymentStatus.value === 'Cancelled' ? 'Booking cancelled' : 'Draft saved locally',
+        invoiceNumber: `FIESTA-${Date.now().toString().slice(-8)}`,
         createdAt: new Date().toISOString()
       };
     }
@@ -2519,9 +2906,9 @@
       bookings.unshift(booking);
       setBookings(bookings);
       const inventory = getInventory();
-      inventory.chairs -= booking.inventory.chairs;
-      inventory.tables -= booking.inventory.tables;
-      inventory.decorations -= booking.inventory.decorations;
+      inventory.chairs = Math.max(0, inventory.chairs - booking.inventory.chairs);
+      inventory.tables = Math.max(0, inventory.tables - booking.inventory.tables);
+      inventory.decorations = Math.max(0, inventory.decorations - booking.inventory.decorations);
       setInventory(inventory);
       localStorage.setItem(STORAGE_KEYS.latest, JSON.stringify(booking));
       renderInvoice(booking);
@@ -2562,6 +2949,7 @@
       if(!adminModal.classList.contains('active')) document.body.classList.remove('modal-open');
     }
     function openAdmin(){
+      closeAdminLoginPanel();
       adminModal.classList.add('active');
       adminModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
@@ -2618,6 +3006,21 @@
     openBooking?.addEventListener('click', openModal);
     closeBooking?.addEventListener('click', closeModal);
     closeAdmin?.addEventListener('click', closeAdminPanel);
+    closeAdminLogin?.addEventListener('click', closeAdminLoginPanel);
+    cancelAdminLogin?.addEventListener('click', closeAdminLoginPanel);
+    adminLoginModal?.addEventListener('click', (e) => { if(e.target === adminLoginModal) closeAdminLoginPanel(); });
+    adminLoginForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if(adminPassword.value !== getAdminPassword()){
+        showToast('Incorrect admin password.');
+        adminPassword.focus();
+        return;
+      }
+      localStorage.setItem(STORAGE_KEYS.adminSession, 'active');
+      adminPassword.value = '';
+      showToast('Admin dashboard unlocked.');
+      openAdmin();
+    });
     bookingModal?.addEventListener('click', (e) => { if(e.target === bookingModal) closeModal(); });
     adminModal?.addEventListener('click', (e) => { if(e.target === adminModal) closeAdminPanel(); });
 
@@ -2634,19 +3037,34 @@
       });
     });
 
-    galleryCards.forEach(card => {
-      card.addEventListener('click', () => {
-        lightboxImage.src = card.getAttribute('data-image');
-        lightbox.classList.add('active');
-      });
+    galleryCards.forEach((card, index) => {
+      card.addEventListener('click', () => openGalleryAt(index));
     });
     closeLightbox.addEventListener('click', () => {
       lightbox.classList.remove('active');
       lightboxImage.src = '';
     });
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentGalleryIndex = (currentGalleryIndex - 1 + galleryCards.length) % galleryCards.length;
+      openGalleryAt(currentGalleryIndex);
+    });
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentGalleryIndex = (currentGalleryIndex + 1) % galleryCards.length;
+      openGalleryAt(currentGalleryIndex);
+    });
     lightbox.addEventListener('click', (e) => {
       if(e.target === lightbox){ lightbox.classList.remove('active'); lightboxImage.src = ''; }
     });
+    let lightboxTouchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => { lightboxTouchStartX = e.changedTouches[0].clientX; }, { passive:true });
+    lightbox.addEventListener('touchend', (e) => {
+      const delta = e.changedTouches[0].clientX - lightboxTouchStartX;
+      if(Math.abs(delta) < 40) return;
+      if(delta < 0) lightboxNext.click();
+      else lightboxPrev.click();
+    }, { passive:true });
     galleryFilters.forEach(btn => {
       btn.addEventListener('click', () => {
         galleryFilters.forEach(item => item.classList.remove('active'));
@@ -2660,7 +3078,7 @@
     });
 
     chipToggles.forEach(btn => btn.addEventListener('click', () => { btn.classList.toggle('active'); updateQuoteUI(); }));
-    [packageSelect, guestCount, setupHours, eventType, eventDate].forEach(el => el.addEventListener('input', () => { updateQuoteUI(); updateSuggestions(); }));
+    [packageSelect, guestCount, setupHours, eventType, eventDate, paymentStatus, paymentMethod, promoCode, discountValue].forEach(el => el.addEventListener('input', () => { updateQuoteUI(); updateSuggestions(); renderCalendar(); }));
     venueInput.addEventListener('input', updateQuoteUI);
 
     bookingForm.addEventListener('submit', (e) => {
@@ -2710,6 +3128,11 @@
       if(!btn) return;
       deleteBooking(btn.dataset.deleteBooking);
     });
+    adminBookingsTableBody.addEventListener('change', (e) => {
+      const select = e.target.closest('[data-payment-booking]');
+      if(!select) return;
+      updateBookingPayment(select.dataset.paymentBooking, select.value);
+    });
     exportAdminJson.addEventListener('click', () => downloadJson('fiesta-bookings.json', getBookings()));
     downloadBookingsBtn.addEventListener('click', () => downloadJson('fiesta-bookings.json', getBookings()));
     resetInventoryBtn.addEventListener('click', () => {
@@ -2717,6 +3140,13 @@
       renderAnalytics();
       updateQuoteUI();
       showToast('Inventory reset to default stock.');
+    });
+    restockInventoryBtn.addEventListener('click', restockInventory);
+    logoutAdminBtn.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEYS.adminSession);
+      closeAdminPanel();
+      renderAnalytics();
+      showToast('Admin session closed.');
     });
     clearBookingsBtn.addEventListener('click', () => {
       setBookings([]);
@@ -2734,29 +3164,51 @@
       }
       window.print();
     });
+    downloadPdfBtn?.addEventListener('click', triggerPdfDownload);
+    downloadPdfBtnInline?.addEventListener('click', triggerPdfDownload);
+    installAppBtn?.addEventListener('click', async () => {
+      if(!deferredInstallPrompt){
+        showToast('Install prompt is only available in supported browsers after engagement.');
+        return;
+      }
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice.catch(() => {});
+      deferredInstallPrompt = null;
+      updatePwaButtonState();
+    });
 
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape'){
         closeModal();
         closeAdminPanel();
+        closeAdminLoginPanel();
         lightbox.classList.remove('active');
         lightboxImage.src = '';
       }
       if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a'){
         e.preventDefault();
-        openAdmin();
+        maybeOpenAdmin();
       }
     });
     document.querySelectorAll('input, textarea, select').forEach(el => el.addEventListener('focus', () => scrollFieldIntoView(el)));
 
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      updatePwaButtonState();
+    });
+
     window.addEventListener('load', () => {
       const splash = document.getElementById('appReadySplash');
       const latest = latestBookingDraft();
+      registerPwaAssets();
+      updatePwaButtonState();
       if(latest){ renderInvoice(latest); }
       renderAnalytics();
       renderAdminTable();
       updateSuggestions();
       updateQuoteUI();
+      renderCalendar();
       setTimeout(() => {
         if(splash){
           splash.style.opacity = '0';
@@ -2765,6 +3217,15 @@
         }
       }, 450);
     });
+
+    setTimeout(() => {
+      const splash = document.getElementById('appReadySplash');
+      if(splash){
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+        setTimeout(() => splash.remove(), 400);
+      }
+    }, 3200);
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -2778,3 +3239,6 @@
   </script>
 </body>
 </html>
+
+<!-- Enhanced System Loaded -->
+<script src='system.js'></script>
